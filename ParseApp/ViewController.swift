@@ -7,12 +7,16 @@
 //
 
 import UIKit
+import Parse
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+     let person = PFObject(className: "People")
+        person.setValue("Chhaya", forKey: "FirstName")
+        person.setValue("Tiwari", forKey: "LastName")
+        person.saveInBackground()
     }
 
 
