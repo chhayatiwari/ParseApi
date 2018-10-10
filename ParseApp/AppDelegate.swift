@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let config = ParseClientConfiguration {
             $0.applicationId = "chhaya_9898"
-            $0.server = "http://chhaya-parse.herokuapp.com/parse"
+            $0.server = "https://chhaya-parse.herokuapp.com/parse"
         }
         Parse.initialize(with: config)
         
