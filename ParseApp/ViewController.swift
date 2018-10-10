@@ -18,7 +18,24 @@ class ViewController: UIViewController {
         person.setValue("Tiwari", forKey: "LastName")
         person.saveInBackground() */
       //  saveDataToParse()
-        retreiveDatabase()
+       // retreiveDatabase()
+        updatefindRecord()
+    }
+    
+    func updatefindRecord() {
+        let query = PFQuery(className: "People")
+        query.whereKey("FirstName", equalTo: "Sharad")
+        query.whereKey("LastName", hasPrefix: "Tiwari")
+        query.getFirstObjectInBackground { (objects, error) in
+            if let object = objects {
+                object.setValue("Pawar", forKey: "LastName")
+                object.saveInBackground()
+                print(object)
+            }
+            else {
+                print(error?.localizedDescription)
+            }
+        }
     }
 
     func retreiveDatabase() {
